@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/car.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <title>Car Website</title>
+  </head>
+  <body>
+    <%- include("./nav.ejs") %>
+
+    <section class="home" id="home">
+      <div class="hometex">
+        <h1>Our website <br />have multiple of <span>cars</span><br /></h1>
+        <p>Every car is represented interior&exterior</p>
+        <br />
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="heading">
+        <span>About us</span>
+        <h1>Best customer experience</h1>
+      </div>
+      <div class="about-container">
+        <img src="/img/2003_Porsche_CarreraGT.png" alt="About Us" />
+      </div>
+      <div class="about-text">
+        <span>About us</span>
+        <p>
+          Welcome to MK Showroom, your ultimate online destination for exploring
+          and purchasing a wide range of automobiles. Whether you are a car
+          enthusiast or looking for your next vehicle, our website offers an
+          extensive collection of cars from various brands like Porsche, Honda,
+          and MG, each detailed with in-depth specifications and high-quality
+          images to enhance your buying experience.
+        </p>
+        <p>
+          Our site is designed to facilitate easy navigation through different
+          sections showcasing diverse car models, from luxury sports cars to
+          reliable family vehicles. You can compare different models
+          side-by-side, learning about their features such as horsepower, engine
+          size, and pricing, helping you make an informed decision tailored to
+          your needs and preferences.
+        </p>
+        <p>
+          Beyond browsing car models, you can also access essential information
+          through our intuitive navigation bar, which includes links to home,
+          about us, contact details, and registration for new users. With
+          additional features like a search function and direct links to our
+          social media pages, MK Showroom connects you with our vibrant
+          community and keeps you updated with the latest in the automotive
+          world.
+        </p>
+        <p>
+          Experience a seamless car buying journey with MK Showroom, where your
+          perfect car awaits just a few clicks away!
+        </p>
+      </div>
+    </section>
+
+    <div class="carsmenu" id="cars-menu">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Cars</h2>
+        </div>
+        <div class="cars-menu-content">
+          <div class="row">
+            <% cars.forEach(car => { %>
+            <div class="Cars-Collage">
+              <div class="single-car">
+                <div class="single-car-image-box">
+                  <div class="car-image">
+                    <img src="<%= car.images[0] %>" alt="<%= car.type %>" />
+                  </div>
+                  <div class="car-model-info">
+                    <p>
+                      model: <%= car.yearOfManufacture %>
+                      <span class="featured-mi-span"><%= car.cc %></span>
+                      <span class="featured-hp-span"
+                        ><%= car.horsePower %></span
+                      >
+                      <%= car.transmission %>
+                    </p>
+                  </div>
+                </div>
+                <div class="cars-txt">
+                  <h2><%= car.type %> <%= car.model %></h2>
+                  <h3>$<%= car.price.toLocaleString() %></h3>
+                  <p><%= car.description %></p>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Mk Showroom</h4>
+            <ul>
+              <li><a href="about.html">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="#">Sign in</a></li>
+              <li><a href="#">Sign up</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact us</h4>
+            <ul>
+              <li><a href="#">+966 56083346</a></li>
+              <li><a href="#">Ibn waddah</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://github.com/MohamedAmeen12/Project1"
+                ><i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+             
+    </footer>
+  </body>
+</html>
